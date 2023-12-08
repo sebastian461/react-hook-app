@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
+import { Message } from "./Message";
 
 export const SimpleForm = () => {
   const [formState, setFormState] = useState({
-    username: "Mr. ?",
+    username: "Mr.?",
     email: "sebastian@hotmail.com",
   });
 
@@ -42,14 +43,14 @@ export const SimpleForm = () => {
    * va a estar pendiente cada vez que 'formState' cambie
    */
   useEffect(() => {
-    console.log("formState change");
+    //console.log("formState change");
   }, [formState]);
 
   /*
    * va a lanzarse cada vez que el email cambie
    */
   useEffect(() => {
-    console.log("email change");
+    //console.log("email change");
   }, [email]);
 
   return (
@@ -68,12 +69,14 @@ export const SimpleForm = () => {
 
       <input
         type="email"
-        className="form-control mt-2"
+        className="form-control my-2"
         placeholder="sebastian@hotmail.com"
         name="email"
         value={email}
         onChange={onInputChange}
       />
+
+      {username === "Mr.?" && <Message />}
     </>
   );
 };
