@@ -29,7 +29,6 @@ export const useFetch = (url) => {
         hasError: error,
       });
     }
-    console.log(state.hasError);
   };
 
   const newQuote = () => {
