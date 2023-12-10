@@ -1,4 +1,6 @@
 import { useFetch } from "../hooks";
+import { LoadingComponent } from "./LoadingComponent";
+import { QuoteComponent } from "./QuoteComponent";
 
 export const MultipleCustomHook = () => {
   const { data, isLoading, hasError, newQuote } = useFetch(
@@ -13,12 +15,9 @@ export const MultipleCustomHook = () => {
       <hr />
       <h2>Breaking Bad Quotes</h2>
       {isLoading ? (
-        <div className="alert alert-info text-center mt-3">Cargando...</div>
+        <LoadingComponent />
       ) : (
-        <blockquote className="blockquote text-end">
-          <p>{quote}</p>
-          <footer className="blockquote-footer">{author}</footer>
-        </blockquote>
+        <QuoteComponent quote={quote} author={author} />
       )}
 
       <button

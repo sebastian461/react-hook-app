@@ -9,19 +9,27 @@ export const useFetch = (url) => {
   });
 
   const getFetch = async () => {
-    setState({
-      ...state,
-      isLoading: true,
-    });
+    try {
+      setState({
+        ...state,
+        isLoading: true,
+      });
 
-    const resp = await fetch(url);
-    const data = await resp.json();
+      const resp = await fetch(url);
+      const data = await resp.json();
 
-    setState({
-      data,
-      isLoading: false,
-      hasError: null,
-    });
+      setState({
+        data,
+        isLoading: false,
+        hasError: null,
+      });
+    } catch (error) {
+      setState({
+        ...setState,
+        hasError: error,
+      });
+    }
+    console.log(state.hasError);
   };
 
   const newQuote = () => {
