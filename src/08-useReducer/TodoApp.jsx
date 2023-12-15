@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { TodoList, TodoAdd } from "./index";
 import { useTodo } from "../hooks/useTodo";
 
